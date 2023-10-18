@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _isdigit - checks for a digit (0 through 9).
+ * mul - multiplies two integers.
  * @a: input number
  * @b: input number
  *

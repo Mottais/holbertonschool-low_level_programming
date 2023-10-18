@@ -3,5 +3,5 @@ SCR=main.c school.c
 
 all: hello
 
-hello : $(SCR)
+hello: $(SCR)
 	$(CC) $(SCR) -o school

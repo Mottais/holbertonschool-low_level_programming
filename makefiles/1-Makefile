@@ -1,8 +1,6 @@
-SCR =main.c school.c
+SRC =main.c school.c
 CC =gcc
 
 all: 
-	$(CC) $(SCR) -o school
+	$(CC) $(SRC) -o school
 
-lean:
-	rm -f school

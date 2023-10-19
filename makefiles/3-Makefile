@@ -7,9 +7,10 @@ RM =rm
 all: $(OBJ) 
 	$(CC) $(OBJ) -o $(NAME)
 
-re: force 
+re: 
 	$(CC) $(OBJ) -o $(NAME)
-force:
+
+.PHONY: re
 	
 
 clean:

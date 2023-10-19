@@ -7,8 +7,9 @@ RM =rm
 all: $(OBJ) 
 	$(CC) $(OBJ) -o $(NAME)
 
-re: 
+re: force 
 	$(CC) $(OBJ) -o $(NAME)
+force:
 	
 
 clean:

@@ -1,0 +1,37 @@
+#include "main.h"
+
+/**
+ * FizzBuzz - FizzBuzz
+ *
+ */
+void FizzBuzz(void)
+{
+	int i;
+
+		for (i = 1; i <= 14 ; c++)
+		{
+				
+			if (!(i % 3))
+			{
+				_putchar('F')
+				_putchar('i')
+				_putchar('z')
+				_putchar('z')
+			}
+
+			if (!(i % 5))
+			{
+				_putchar('B')
+				_putchar('u')
+				_putchar('z')
+				_putchar('z')
+			}
+			
+			if (	
+				if (i > 9)
+				_putchar((i / 10) + '0');
+
+				_putchar((i % 10) + '0');
+		}
+
+}

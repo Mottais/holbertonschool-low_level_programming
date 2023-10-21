@@ -8,29 +8,29 @@
 
 void print_number(int n)
 {
-	int p = 1;
+	long p = 1;
+	long ln = n;
 
-
-	if (n == 0)
+	if (ln == 0)
 	{
 		_putchar('0');
 	}
 	else
 	{
-		if (n < 0)
+		if (ln < 0)
 		{
-			n = n * (-1);
+			ln = ln * (-1);
 			_putchar('-');
 		}
 
-		while ((n / p) != 0)
+		while ((ln / p) != 0)
 		{
 			p = p * 10;
 		}
 
 		while (p != 1)
 		{
-			_putchar('0' + (n / (p / 10)) - 10 * (n / p));
+			_putchar('0' + (ln / (p / 10)) - 10 * (ln / p));
 			p = p / 10;
 		}
 	}

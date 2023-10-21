@@ -16,5 +16,5 @@ int main(void)
 			nombre = nombre / i;
 	}
 	printf("%d\n", i - 1);
-	return (i);
+	return (0);
 }

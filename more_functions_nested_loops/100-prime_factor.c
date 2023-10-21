@@ -15,5 +15,6 @@ int main(void)
 		if ((nombre % i) == 0)
 			nombre = nombre / i;
 	}
+	printf("%d\n", i);
 	return (i);
 }

@@ -17,6 +17,7 @@ int _atoi(char *s)
 	int fin;
 	int signe = 1;
 	int n;
+	int len;
 
 	len = strlen(s);
 

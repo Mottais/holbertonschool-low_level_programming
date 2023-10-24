@@ -27,7 +27,7 @@ int _atoi(char *s)
 	{
 		car = *(s + i);
 		if (car == '-')
-		signe = signe * (-1);
+		signe++;
 
 		i++;
 	}
@@ -50,7 +50,8 @@ int _atoi(char *s)
 		n = n * 10;
 	}
 
-	nb = nb * signe;
+	if ((signe % 2) == 0)
+	nb = nb * -1;
 
 	return (nb);
 

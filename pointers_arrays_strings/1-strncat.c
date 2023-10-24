@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _strncpy - concatenates two strings n caraters
+ * _strncat - concatenates two strings n caraters
  * @dest: input string destibation
  * @src : input string source
  * @n : nubre caraters

@@ -28,6 +28,10 @@ int _atoi(char *s)
 		car = *(s + i);
 		if (car == '-')
 		signe++;
+
+		if (car == '+')
+		signe--;
+
 		i++;
 	}
 

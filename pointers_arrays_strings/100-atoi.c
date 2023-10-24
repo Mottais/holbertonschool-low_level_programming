@@ -18,9 +18,10 @@ int _atoi(char *s)
 	int signe = 1;
 	int n;
 
+	len = strlen(s);
 
 	i = 0;
-	while (!(*(s + i) >= '0' && *(s + i) <= '9'))
+	while (!(*(s + i) >= '0' && *(s + i) <= '9') && i != len)
 	i++;
 
 	debut = i;

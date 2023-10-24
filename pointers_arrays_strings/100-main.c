@@ -12,11 +12,11 @@ int main(void)
 
 	nb = _atoi("98");
 	printf("%d\n", nb);
-	nb = _atoi("-402");
+	nb = _atoi("-2147483648");
 	printf("%d\n", nb);
 	nb = _atoi("          ------++++++-----+++++--98");
 	printf("%d\n", nb);
-	nb = _atoi("214748364");
+	nb = _atoi("2147483647");
 	printf("%d\n", nb);
 	nb = _atoi("0");
 	printf("%d\n", nb);

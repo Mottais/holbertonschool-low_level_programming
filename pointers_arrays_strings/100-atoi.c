@@ -10,19 +10,15 @@
 
 int _atoi(char *s)
 {
-	int nb;
 	char car;
-	int i;
-	int debut;
-	int fin;
+	int i, len;
+	int debut, fin;
 	int signe = 1;
-	int n;
-	int len;
+	long int n, lnb;
 
 	len = strlen(s);
 
 	i = 0;
-
 	while (!(*(s + i) >= '0' && *(s + i) <= '9') && i != len)
 	{
 		car = *(s + i);
@@ -31,7 +27,6 @@ int _atoi(char *s)
 
 		i++;
 	}
-
 	debut = i;
 
 
@@ -42,17 +37,14 @@ int _atoi(char *s)
 	fin = i - 1;
 
 	n = 1;
-	nb = 0;
+	lnb = 0;
 	for (i = fin; i >= debut; i--)
 	{
 		car = *(s + i);
-		nb = nb + (car - '0') * n;
+		lnb = lnb + (car - '0') * n;
 		n = n * 10;
 	}
 
-	nb = nb * signe;
-
-	return (nb);
-
+	return (lnb * signe);
 }
 

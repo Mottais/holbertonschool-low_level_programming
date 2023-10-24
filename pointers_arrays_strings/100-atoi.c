@@ -53,6 +53,8 @@ int _atoi(char *s)
 		n = n * 10;
 	}
 
+	if (signe < 0)
+	signe = signe * (-1);
 	if ((signe % 2) == 0)
 	nb = nb * -1;
 

@@ -14,7 +14,7 @@ int _atoi(char *s)
 	int i, len;
 	int debut, fin;
 	int signe = 1;
-	long int n, lnb;
+	int n, nb;
 
 	len = strlen(s);
 
@@ -37,14 +37,15 @@ int _atoi(char *s)
 	fin = i - 1;
 
 	n = 1;
-	lnb = 0;
+	nb = 0;
 	for (i = fin; i >= debut; i--)
 	{
 		car = *(s + i);
-		lnb = lnb + (car - '0') * n;
+		nb = nb + (car - '0') * n;
+		if (n != 1000000000)
 		n = n * 10;
 	}
 
-	return (lnb * signe);
+	return (nb * signe);
 }
 

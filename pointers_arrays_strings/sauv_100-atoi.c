@@ -10,50 +10,42 @@
 
 int _atoi(char *s)
 {
-	int nb;
 	char car;
-	int i;
-	int debut;
-	int fin;
-	int signe = 1;
-	int n;
-	int len;
+	int i = 0, len = strlen(s);
+	int debut, fin;
+	int signe = -1;
+	int n, nb;
 
 	len = strlen(s);
-
-	i = 0;
-
+	
+	/* cherche position 1er caractere numérique et attribue à var 'debut' */
 	while (!(*(s + i) >= '0' && *(s + i) <= '9') && i != len)
 	{
 		car = *(s + i);
+		/* nombre négatif si le nbr de '-' qui le précède est impair */
 		if (car == '-')
-		signe++;
-
+		signe = signe * (-1);
 		i++;
 	}
-
 	debut = i;
 
-
-	i = debut;
+	/*cherche position dernier caractere numérique consécutif et attribue à var 'fin' */	
 	while ((*(s + i) >= '0' && *(s + i) <= '9'))
 	i++;
-
 	fin = i - 1;
 
+	/* calcul nombre à partir des valeurs numériques entre 'debut' et 'fin'     */
+	/* traitement du nombre en négatif pour gérer le probleme du integer max    */
 	n = 1;
 	nb = 0;
 	for (i = fin; i >= debut; i--)
 	{
 		car = *(s + i);
-		nb = nb + (car - '0') * n;
+		nb = nb - (car - '0') * n;
+		/* gestion de n pour probleme du integer max */ 
+		if (n != 1000000000)
 		n = n * 10;
 	}
-
-	if ((signe % 2) == 0)
-	nb = nb * -1;
-
-	return (nb);
-
+	return (nb * signe);
 }
 

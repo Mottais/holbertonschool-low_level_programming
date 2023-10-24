@@ -7,7 +7,7 @@
  * @s1: input string
  * @s2: input string
  *
- * Return: exactly like strcmp
+ * Return: différence ASCII du 1er caractere différent
  */
 
 int _strcmp(char *s1, char *s2)

@@ -16,10 +16,12 @@ char *cap_string(char *a)
 	for (i = 0; i < len; i++)
 	{
 		if (a[i] == 9)
-		a[i] = ' ';
+		a[i] = 9;
 		
 		if (a[i + 1] >= 'a' && a[i + 1] <= 'z')
 		{
+			if (a[i] == 9)
+			a[i + 1] = a[i + 1] - 'a' + 'A';
 			if (a[i] == ' ')
 			a[i + 1] = a[i + 1] - 'a' + 'A';
 			if (a[i] == 10)

@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _memset - fills memory with a constant byte.
+ * _memcpy - fills memory with a constant byte.
  * @dest: tableau à modifier
  * @src: tableau à copier
  * @n: nb de valeur de src a écrire 'b' dans dest

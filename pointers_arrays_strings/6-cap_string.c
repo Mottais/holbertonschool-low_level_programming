@@ -15,9 +15,9 @@ char *cap_string(char *a)
 
 	for (i = 0; i < len; i++)
 	{
-		if (a[i] == 9)
-		a[i] = 9;
-		
+		if (a[0] >= 'a' && a[0] <= 'z')
+		a[0] = a[0] - 'a' + 'A';
+
 		if (a[i + 1] >= 'a' && a[i + 1] <= 'z')
 		{
 			if (a[i] == 9)

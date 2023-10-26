@@ -17,7 +17,7 @@ char *_strpbrk(char *s, char *accept)
 	len_s = strlen(s);
 	len_accept = strlen(accept);
 
-	for (i = 0; i < len_s; i++)
+	for (i = 0; i <= len_s; i++)
 	{
 		compte = 0;
 		for (j = 0; j < len_accept; j++)

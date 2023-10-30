@@ -4,12 +4,11 @@
 
 /**
  * carre_de_i - cherche si i au carré egale n
- * @i : integer incrémenté
- * @n : le carré recherché
+ * @i: integer incrémenté
+ * @n: le carré recherché
  *
- * Teturn : i si trouvé sinon -1
+ * Return: i si trouvé sinon -1
  */
-
 int carre_de_i(int i, int n)
 {
 	if (i * i == n)

@@ -1,21 +1,19 @@
 #include "main.h"
 
 /**
- * _strchr -  locates a character in a string.
- * @s: input string
- * @c: caractere recherché
- *
- * Return: retourne pointeur sur s à partir du caractere c
+ * _strlen - return strength of string
+ * @s: string
+ * Return: int strength of string
  */
 
-char *_strchr(char *s, char c)
+int _strlen(char *s)
 {
-	int i;
+	int count = 0;
 
-	i = 0;
-	while (s[i] != c && s[i] != 0)
+	while (*s != '\0')
 	{
-		i++;
+		count++;
+		s++;
 	}
-	return (s[i - 1]);
+	return (count);
 }

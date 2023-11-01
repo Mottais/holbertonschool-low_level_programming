@@ -16,12 +16,11 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		return (1);
 	}
+
+
 	cents = atoi(argv[1]);
 	if (cents < 0)
-	{
-		printf("Error\n");
-		return (1);
-	}
+	cents = 0;
 
 	count += cents / 25;
 	cents %= 25;
@@ -39,6 +38,6 @@ int main(int argc, char *argv[])
 	cents %= 1;
 
 	printf("%d\n", count);
-	return(0);
+	return (0);
 
 }

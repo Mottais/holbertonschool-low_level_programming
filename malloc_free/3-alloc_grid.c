@@ -27,7 +27,10 @@ int **alloc_grid(int width, int height)
 		ligne[lg] = malloc(sizeof(int) * width);
 
 		if (ligne[lg] == NULL)
-		return (NULL);
+		{
+			free(ligne[lg]);	
+			return (NULL);
+		}
 
 		for (col = 0; col < width; col++)
 		ligne[lg][col] = 0;

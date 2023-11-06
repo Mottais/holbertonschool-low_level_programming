@@ -1,6 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
- #include <string.h>
+#include <string.h>
 /**
  * _strdup -  copy of the string given as a parameter
  *
@@ -14,15 +14,15 @@ char *_strdup(char *str)
 	char *t;
 	unsigned int i, len_str;
 
+	if (str == 0)
+	return (NULL);
+
 	len_str = strlen(str);
 
-	t = malloc(len_str);
 	if (len_str == 0)
-		return (NULL);
+	return (NULL);
 
-	if (str == 0)
-		return (NULL);
-
+	t = malloc(len_str);
 	for (i = 0; i < len_str; i++)
 		t[i] = str[i];
 

@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- * str_nconcat -  function that concatenates two strings.
+ * string_nconcat -  function that concatenates two strings.
  * @s1: input string1
  * @s2: input string2
  * @n : input intiguer = nb caractere of s2 to after after s1

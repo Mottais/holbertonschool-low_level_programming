@@ -1,4 +1,3 @@
-#ifndef SOMME
-#define SOMME
+#ifndef XXXXX
 #define SUM(x, y) ((x) + (y))
 #endif

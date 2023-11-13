@@ -19,7 +19,10 @@ dog_t *new_dog(char *name, float age, char *owner)
 	copy_dog = malloc(sizeof(dog_t));
 
 	if (copy_dog == NULL || age < 0)
-	return (NULL);
+	{
+		free(copy_dog);
+		return (NULL);
+	}
 
 	copy_dog->name = strdup(name);
 	copy_dog->owner = strdup(owner);

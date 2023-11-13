@@ -21,17 +21,12 @@ dog_t *new_dog(char *name, float age, char *owner)
 			return (NULL);
 
 		copy_dog->name = malloc(sizeof(char) * (strlen(name) + 1));
-			if (copy_dog->name == NULL)
-			{
-				free(copy_dog);
-				return (NULL);
-			}
-
 		copy_dog->owner = malloc(sizeof(char) * (strlen(owner) + 1));
 
-		if (copy_dog->owner == NULL)
+		if (copy_dog->owner == NULL || copy_dog->name == NULL)
 		{
 			free(copy_dog->name);
+			free(copy_dog->owner);
 			free(copy_dog);
 			return (NULL);
 		}

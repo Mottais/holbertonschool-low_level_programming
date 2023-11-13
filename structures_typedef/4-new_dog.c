@@ -1,4 +1,4 @@
-nclude "dog.h"
+#include "dog.h"
 #include <stdlib.h>
 #include <string.h>
 

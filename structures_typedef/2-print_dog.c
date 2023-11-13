@@ -3,27 +3,30 @@
 #include <stdlib.h>
 #include <stdio.h>
 /**
- * print_dog - print a structure of a dog
- * @d: structure of dog
- * Return: void
+ * print_dog - function that prints a struct dog
+ * @d: ptr of data dog
+ *
+ * Return: no return.
  */
 void print_dog(struct dog *d)
 {
+
 	if (d == NULL)
 		return;
-	printf("Name: ");
-	if (d->name == NULL)
-		printf("(nil)\n");
+
+	if (d->name != NULL)
+		printf("Name: %s\n", d->name);
 	else
-		printf("%s\n", d->name);
-	printf("Age: ");
-	if (isnan(d->age))
-		printf("(nil)\n");
+		printf("Name: (nil)\n");
+
+	if (d->age != 0)
+		printf("Age: %f\n", d->age);
 	else
-		printf("%f\n", d->age);
-	printf("Owner: ");
-	if (d->owner == NULL)
-		printf("(nil)\n");
+		printf("Age: (nil)\n");
+
+	if (d->owner != NULL)
+		printf("Owner: %s\n", d->owner);
 	else
-		printf("%s\n", d->owner);
+		printf("Owner: (nil)\n");
+
 }

@@ -2,30 +2,47 @@
 #include "dog.h"
 #include <stdlib.h>
 #include <string.h>
+
 /**
- * new_dog - creates a new dog
- * @name: input name of dog
- * @age : input age of dog
- * @owner : input owner of dog
- * Return: return a pointer to new dog.
+ *new_dog - WASSUP DAWG
+ *@name: name of the new doggo
+ *@age: age of the good boy
+ *@owner: happy owner
+ *Return: new dog
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *new_dog;
+	/*Allocate memory for the new dog structure*/
+	dog_t *newDog = malloc(sizeof(dog_t));
 
-	if (name != NULL && owner != NULL && age >= 0)
+	/*Check if memory allocation was successful*/
+	if (newDog == NULL)
+		return (NULL);  /*Return NULL if allocation fails*/
+
+/* Allocate memory for the name string and copy the provided value */
+	newDog->name = strdup(name);
+
+	/* Check if name string allocation was successful */
+	if (newDog->name == NULL)
 	{
-		new_dog = malloc(sizeof(dog_t));
-
-		if (new_dog == NULL)
-			return (NULL);
-
-		new_dog->name = strdup(name);
-		new_dog->owner = strdup(owner);
-		new_dog->age = age;
+		/* Free previously allocated memory for the structure */
+		free(newDog);
+		return (NULL); /* Return NULL if string allocation fails */
 	}
-	else
-		return (NULL);
 
-	return (new_dog);
+	/* Allocate memory for the owner string and copy the provided value */
+	newDog->owner = strdup(owner);
+
+	/* Check if owner string allocation was successful */
+	if (newDog->owner == NULL)
+	{
+		/*Free previously allocated memory for the structure and name */
+		free(newDog->name);
+		free(newDog);
+		return (NULL); /* Return NULL if string allocation fails */
+	}
+
+	newDog->age = age; /* Copy the provided age value */
+
+	return (newDog); /* Return the pointer to the newly created dog structure */
 }

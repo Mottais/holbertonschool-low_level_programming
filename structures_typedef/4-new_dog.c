@@ -1,48 +1,49 @@
-#include <stdio.h>
-#include "dog.h"
+nclude "dog.h"
 #include <stdlib.h>
 #include <string.h>
 
 /**
- *new_dog - WASSUP DAWG
- *@name: name of the new doggo
- *@age: age of the good boy
- *@owner: happy owner
- *Return: new dog
+ * new_dog - create a new file for dog with name, age and owner
+ * @name: name of dog
+ * @age: age of dog
+ * @owner: owner of a dog
+ * Return: dog_t
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	/*Allocate memory for the new dog structure*/
-	dog_t *newDog = malloc(sizeof(dog_t));
+	dog_t *copy_dog;
+	int length_name = 0, length_owner = 0;
 
-	/*Check if memory allocation was successful*/
-	if (newDog == NULL)
-		return (NULL);  /*Return NULL if allocation fails*/
-
-/* Allocate memory for the name string and copy the provided value */
-	newDog->name = strdup(name);
-
-	/* Check if name string allocation was successful */
-	if (newDog->name == NULL)
+	if (name != NULL && owner != NULL)
 	{
-		/* Free previously allocated memory for the structure */
-		free(newDog);
-		return (NULL); /* Return NULL if string allocation fails */
+		length_name = strlen(name) + 1;
+		length_owner = strlen(owner) + 1;
+		copy_dog = malloc(sizeof(dog_t));
+
+		if (copy_dog == NULL)
+			return (NULL);
+
+		copy_dog->name = malloc(sizeof(char) * length_name);
+
+			if (copy_dog->name == NULL)
+			{
+				free(copy_dog);
+				return (NULL);
+			}
+
+		copy_dog->owner = malloc(sizeof(char) * length_owner);
+
+		if (copy_dog->owner == NULL)
+		{
+			free(copy_dog->name);
+			free(copy_dog);
+			return (NULL);
+		}
+
+		copy_dog->name = strcpy(copy_dog->name, name);
+		copy_dog->age = age;
+		copy_dog->owner = strcpy(copy_dog->owner, owner);
 	}
 
-	/* Allocate memory for the owner string and copy the provided value */
-	newDog->owner = strdup(owner);
-
-	/* Check if owner string allocation was successful */
-	if (newDog->owner == NULL)
-	{
-		/*Free previously allocated memory for the structure and name */
-		free(newDog->name);
-		free(newDog);
-		return (NULL); /* Return NULL if string allocation fails */
-	}
-
-	newDog->age = age; /* Copy the provided age value */
-
-	return (newDog); /* Return the pointer to the newly created dog structure */
+	return (copy_dog);
 }

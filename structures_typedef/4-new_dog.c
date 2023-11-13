@@ -12,7 +12,6 @@
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *copy_dog;
-	int length_name = 0, length_owner = 0;
 
 	if (name != NULL && owner != NULL)
 	{

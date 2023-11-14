@@ -3,27 +3,30 @@
 #include <string.h>
 /**
  * get_op_func - select the correct function
- * @s: operator
- * Return: pointer to function
+ * @s: string of get p function
+ * Return: Integer and function
  */
 int (*get_op_func(char *s))(int, int)
 {
-	int i;
+		op_t ops[] = {
+			{"+", op_add},
+			{"-", op_sub},
+			{"*", op_mul},
+			{"/", op_div},
+			{"%", op_mod},
+			{NULL, NULL}
+		};
+	int i = 0;
 
-	op_t ops[] = {
-	{"+", op_add},
-	{"-", op_sub},
-	{"*", op_mul},
-	{"/", op_div},
-	{"%", op_mod},
-	{NULL, NULL}
-	};
-
-	for (i = 0; i < 5; i++)
+	while (i < 5)
 	{
 		if (strcmp(s, ops[i].op) == 0)
-		return (ops[i].f);
+		{
+			return (ops[i].f);
+		}
+
+		i++;
 	}
 
-	return (NULL);
+	return (0);
 }

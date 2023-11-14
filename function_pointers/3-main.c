@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 	pointeur_fonction = get_op_func(argv[2]);
 
 
-	if (!pointeur_fonction)
+	if (pointeur_fonction == NULL)
 	{
 		printf("Error\n");
 		exit(99);

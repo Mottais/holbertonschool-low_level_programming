@@ -11,7 +11,7 @@
 int main(int argc, char *argv[])
 {
 
-	int (*pointeur_fonction)(int, int);
+	int (*pointeur_fonction)();
 
 	if (argc != 4)
 	{

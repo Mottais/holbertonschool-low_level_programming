@@ -7,5 +7,7 @@
  */
 void print_name(char *name, void (*f)(char *))
 {
-	f(name);
+	if (f == NULL)
+		return;
+sh: 1: q: not found
 }

@@ -3,8 +3,8 @@
 #include <string.h>
 /**
  * get_op_func - select the correct function
- * @s: operator
- * Return: pointer to function
+ * @s: string of get p function
+ * Return: Integer and function
  */
 int (*get_op_func(char *s))(int, int)
 {

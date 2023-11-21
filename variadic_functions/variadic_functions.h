@@ -6,7 +6,7 @@ void print_strings(const char *separator, const unsigned int n, ...);
 void print_all(const char * const format, ...);
 
 /**
- * CodeFormat_Fonction - CodeFormat-->NameFonction
+ * struct CodeFormat_Fonction - CodeFormat-->NameFonction
  *
  * @Code_Format: The code of format
  * @Pointeur_Fonction_Print: The function associated

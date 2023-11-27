@@ -1,9 +1,10 @@
 #ifndef _EXISTE_DEJA_
 #define _EXISTE_DEJA_
-#include <stdarg.h>
+
+#include <stdlib.h>
+#include <string.h>
 #include <stdio.h>
-#include <unistd.h>
-#include <limits.h>
+
 /**
  * struct list_s - singly linked list
  * @str: string - (malloc'ed string)

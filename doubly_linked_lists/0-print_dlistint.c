@@ -1,4 +1,3 @@
-size_t print_dlistint(const dlistint_t *h)
 #include "lists.h"
 /**
  * print_dlistint - print a doubly linked list
@@ -12,7 +11,7 @@ size_t print_dlistint(const dlistint_t *h)
 
 	while (h != NULL)
 	{
-		printf("[%d]\n", h->n);
+		printf("%d\n", h->n);
 		size++;
 		h = h->next;
 	}

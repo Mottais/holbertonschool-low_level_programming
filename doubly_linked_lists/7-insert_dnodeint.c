@@ -1,4 +1,4 @@
-nclude "lists.h"
+#include "lists.h"
 /**
  * insert_dnodeint_at_index - add a node at the index
  * @idx: the index

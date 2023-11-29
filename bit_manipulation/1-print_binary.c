@@ -6,7 +6,16 @@
  */
 void print_binary(unsigned long int n)
 {
-	if (n > 1)
-		print_binary(n >> 1);
-	_putchar('0' + (n & 1));
+	int tab[32], i = 0;
+
+	do {
+		tab[i] = (n & 1);
+		n = n >> 1;
+		i++;
+	} while (n > 0);
+
+	do {
+		i--;
+		putchar((tab[i]) + '0');
+	} while (i > 0);
 }

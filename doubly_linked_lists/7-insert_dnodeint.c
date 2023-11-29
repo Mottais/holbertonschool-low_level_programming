@@ -1,52 +1,48 @@
-#include "lists.h"
+nclude "lists.h"
 /**
  * insert_dnodeint_at_index - add a node at the index
  * @idx: the index
  * @h: the head of the list
- * @n: the number to add
+ * @n: the data to add
  *
- * Return: the new node
+ * Return: the list
  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	dlistint_t *new_node, *current;
+	dlistint_t *displaynode, *tmp;
 	unsigned int i;
 
-	if (h == NULL)
-	return (0);
+	displaynode = (struct dlistint_s *) malloc(sizeof(struct dlistint_s));
 
-	/* si premier noeud */
+	if (h == NULL || displaynode == NULL)
+		return (0);
+
+	tmp = *h;
+
 	if (idx == 0)
-	return (add_dnodeint(h, n));
-
-	/* Compte le nombre de noeud */
-	i = 1;
-	current = *h;
-	while (current != NULL)
 	{
-		current = current->next;
-		i++;
+		displaynode = add_dnodeint(h, n);
+		return (displaynode);
 	}
-	i--;
 
-	/* Si dernier noeud */
-	if (i == idx)
-	return (add_dnodeint_end(h, n));
+	displaynode->n = n;
 
-	/* Si idx trop grand */
-	if (i < idx)
-	return (0);
+	for (i = 0; i < idx - 1; i++)
+	{
+		if (tmp != NULL)
+			tmp = tmp->next;
+		else
+			return (0);
+	}
 
-	/* Sinon */
-	current = *h;
-	for (i = 0; i < idx - 1; i++) /* pointe sur le noued qui précède */
-	current = current->next;
-	new_node = malloc(sizeof(struct dlistint_s));
-	if (new_node == NULL)
-	return (0);
-	new_node->n = n;
-	new_node->next = current->next;
-	new_node->prev = current;
-	current->next = new_node;
-	return (new_node);
+	displaynode->next = tmp->next;
+
+	tmp->next = displaynode;
+
+	displaynode->prev = tmp;
+
+	if (displaynode->next != NULL)
+		displaynode->next->prev = displaynode;
+
+	return (displaynode);
 }

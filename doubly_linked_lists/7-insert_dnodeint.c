@@ -1,48 +1,55 @@
 #include "lists.h"
+#include <stdlib.h>
+
 /**
  * insert_dnodeint_at_index - add a node at the index
- * @idx: the index
  * @h: the head of the list
- * @n: the data to add
+ * @idx: the index
+ * @n: the number to add
  *
- * Return: the list
+ * Return: the new node, or NULL on failure
  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	dlistint_t *displaynode, *tmp;
+	dlistint_t *new_node, *current;
 	unsigned int i;
 
-	displaynode = (struct dlistint_s *) malloc(sizeof(struct dlistint_s));
+	if (h == NULL)
+		return (NULL);
 
-	if (h == NULL || displaynode == NULL)
-		return (0);
-
-	tmp = *h;
-
+	/* si premier noeud */
 	if (idx == 0)
+		return (add_dnodeint(h, n));
+
+	/* Compte le nombre de noeuds */
+	i = 0;
+	current = *h;
+	while (current != NULL && i < idx - 1)
 	{
-		displaynode = add_dnodeint(h, n);
-		return (displaynode);
+		current = current->next;
+		i++;
 	}
 
-	displaynode->n = n;
+	/* Si idx trop grand */
+	if (current == NULL)
+	return (NULL);
 
-	for (i = 0; i < idx - 1; i++)
-	{
-		if (tmp != NULL)
-			tmp = tmp->next;
-		else
-			return (0);
-	}
+	/* Si dernier noeud, ajoute à la fin */
+	if (current->next == NULL)
+	return (add_dnodeint_end(h, n));
 
-	displaynode->next = tmp->next;
+	/* Sinon, insère au milieu */
+	new_node = malloc(sizeof(dlistint_t));
+	if (new_node == NULL)
+		return (NULL);
 
-	tmp->next = displaynode;
+	new_node->n = n;
+	new_node->next = current->next;
+	new_node->prev = current;
+	if (current->next != NULL)
+		current->next->prev = new_node;
+	current->next = new_node;
 
-	displaynode->prev = tmp;
-
-	if (displaynode->next != NULL)
-		displaynode->next->prev = displaynode;
-
-	return (displaynode);
+	return (new_node);
 }
+

@@ -21,7 +21,8 @@ int main(int argc, char *argv[])
 	file_to = creat(argv[2], 0664);
 	if (file_to == -1)
 	{
-	dprintf(sd_err, "Error: Can't write to %s\n", argv[2]), close(file_from), exit(99);
+		dprintf(sd_err, "Error: Can't write to %s\n", argv[2]), close(file_from);
+		exit(99);
 	}
 
 	while (bytes == 1024)

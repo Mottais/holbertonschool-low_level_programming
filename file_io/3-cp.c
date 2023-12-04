@@ -16,26 +16,20 @@ int main(int argc, char *argv[])
 
 	file_from = open(argv[1], O_RDONLY);
 	if (file_from == -1)
-	{
-		dprintf(sd_err, "Error: Can't read from file %s\n", argv[1]);
-		 exit(98);
-	}
+		dprintf(sd_err, "Error: Can't read from file %s\n", argv[1]), exit(98);
 
 	file_to = creat(argv[2], 0664);
 	if (file_to == -1)
 	{
-		dprintf(sd_err, "Error: Can't write to %s\n", argv[2]);
-		close(file_from), exit(99);
+	dprintf(sd_err, "Error: Can't write to %s\n", argv[2]), close(file_from), exit(99);
 	}
 
 	while (bytes == 1024)
 	{
 		bytes = read(file_from, buf, 1024);
 		if (bytes == -1)
-		{
-			dprintf(sd_err, "Error: Can't read from file %s\n", argv[1]);
-			exit(98);
-		}
+			dprintf(sd_err, "Error: Can't read from file %s\n", argv[1]), exit(98);
+
 		Bytes_Written = write(file_to, buf, bytes);
 		if (Bytes_Written == -1)
 			dprintf(sd_err, "Error: Can't write to %s\n", argv[2]), exit(99);

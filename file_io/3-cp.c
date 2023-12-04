@@ -8,7 +8,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int file_from, file_to, bytes = 1024, Bytes_Written, sd_err = STDERR_FILENO;
+	int file_from, file_to, bytes = 1024,  sd_err = STDERR_FILENO;
 	char buf[1024];
 
 	if (argc != 3)
@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 
 	while (bytes == 1024)
 	{
-		bytes = read(file_from, buf, 1024)ed(file_from, buf, 1024)
+		bytes = read(file_from, buf, 1024);
 		if (bytes == -1)
 			dprintf(sd_err, "Error: Can't read from file %s\n", argv[1]), exit(98);
 

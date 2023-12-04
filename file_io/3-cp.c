@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 			exit(98);
 		}
 		Bytes_Written = write(file_to, buf, bytes);
-		if (Bytes_Written < bytes)
+		if (Bytes_Written == -1)
 			dprintf(sd_err, "Error: Can't write to %s\n", argv[2]), exit(99);
 	}
 

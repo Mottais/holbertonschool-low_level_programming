@@ -1,48 +1,50 @@
 #include "main.h"
 /**
- * main - copies the content of a file to another file.
+ * main - copy a text in another file
  * @argc: number of argument
- * @argv: argv[0]= cp, argv[1] name file from, argv[1] name file from
+ * @argv: list of arguments
  *
- * Return: 1 on success, 98 or 99 or 100 on failure
+ * Return: 0 Success
  */
 int main(int argc, char *argv[])
 {
-	int fd_sourc, fd_dest, bytes = 1024, Bytes_Written;
+	int file_from, file_to, bytes = 1024, num;
 	char buf[1024];
 
 	if (argc != 3)
-		dprintf(2, "Usage: cp file_from file_to\n"), exit(97);
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit(97);
 
-	fd_sourc = open(argv[1], O_RDONLY);
-	if (fd_sourc == -1)
-		dprintf(2, "Error: Can't read from file %s\n", argv[1]), exit(98);
-
-	fd_dest = creat(argv[2], 0664);
-	if (fd_dest == -1)
+	file_from = open(argv[1], O_RDONLY);
+	if (file_from == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
+	file_to = creat(argv[2], 0664);
+	if (file_to == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		close(fd_sourc), exit(99);
+		close(file_from), exit(99);
 	}
 
 	while (bytes == 1024)
 	{
-		bytes = read(fd_sourc, buf, 1024);
+		bytes = read(file_from, buf, 1024);
 		if (bytes == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 			exit(98);
 		}
-		Bytes_Written = write(fd_dest, buf, bytes);
-		if (Bytes_Written < bytes)
+		num = write(file_to, buf, bytes);
+		if (num < bytes)
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
 	}
 
-	if (close(fd_sourc) == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_sourc), exit(100);
+	if (close(file_from) == -1)
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from), exit(100);
 
-	if (close(fd_dest) == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_dest), exit(100);
+	if (close(file_to) == -1)
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to), exit(100);
 
 	return (0);
 }

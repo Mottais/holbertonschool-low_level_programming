@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * read_textfile - Create a function that creates a file.
+ * create_file - Create a function that creates a file.
  *
  * @filename: name of file
  * @text_content: the text to print on file
@@ -18,7 +18,7 @@ int create_file(const char *filename, char *text_content)
 
 	len_text = strlen(text_content);
 
-	fd = open(filename, O_CREAT | O_WRONLY , 0600);
+	fd = open(filename, O_CREAT | O_RDWR, 0600);
 	if (fd == -1)
 		return (-1);
 

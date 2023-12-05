@@ -33,7 +33,6 @@ int main(int argc, char *argv[])
 		if (bytes == -1)
 			dprintf(sd_err, "Error: Can't read from file %s\n", argv[1]), exit(98);
 
-		/* Bytes_Written = write(file_to, buf, bytes);*/
 		if (write(file_to, buf, bytes) == -1)
 			dprintf(sd_err, "Error: Can't write to %s\n", argv[2]), exit(99);
 	}

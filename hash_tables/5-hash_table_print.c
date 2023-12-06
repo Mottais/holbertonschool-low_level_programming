@@ -8,11 +8,11 @@
 void hash_table_print(const hash_table_t *ht)
 {
 	unsigned long int size, i;
-	hash_node_t *ptr, *new_node;
+	hash_node_t *ptr;
 	char *separateur = "";
 
 	if (ht == NULL)
-	return
+	return;
 
 	size = ht->size;
 
@@ -30,6 +30,6 @@ void hash_table_print(const hash_table_t *ht)
 			ptr = ptr->next;
 		}
 	}
-	printf("}");
+	printf("}\n");
 
 }

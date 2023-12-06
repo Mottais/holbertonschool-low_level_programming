@@ -25,7 +25,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	{
 		if (strcmp(ptr->key, key) == 0) /* si clé existe déjà */
 		{
-			free(temp->value);
+			free(ptr->value);
 			ptr->value = strdup(value); /* mise à jour valeur */
 			return (1);
 		}

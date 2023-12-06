@@ -1,3 +1,4 @@
+#include "hash_tables.h"
 /**
  * hash_table_get - etrieves a value associated with a key.
  * @ht: the pointer to the hash table

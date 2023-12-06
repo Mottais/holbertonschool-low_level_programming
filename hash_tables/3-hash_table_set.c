@@ -24,8 +24,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		if (strcmp(ptr->key, key) == 0) /* si clé existe déjà */
 		{
 			ptr->value = strdup(value); /* mise à jour valeur */
-			if (ptr->value == NULL)
-				return (0);
+	/*		if (ptr->value == NULL)*/
+	/*			return (0);*/
 			return (1);
 		}
 		ptr = ptr->next;

@@ -20,21 +20,11 @@ void hash_table_delete(hash_table_t *ht)
 		while (ptr != NULL)
 		{
 			next_noeud = ptr->next;
-			if (ptr->key)
-			{
-				free(ptr->key);
-				ptr->key = NULL;
-			}
-			if (ptr->value)
-			{
-				free(ptr->value);
-				ptr->value = NULL;
-			}
+			free(ptr->key);
+			free(ptr->value);
 			free(ptr);
-			ptr = NULL;
 			ptr = next_noeud;
 		}
-		ht->array[i] = NULL;
 	}
 	free(ht->array);
 	free(ht);

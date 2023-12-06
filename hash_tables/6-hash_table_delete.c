@@ -31,6 +31,7 @@ void hash_table_delete(hash_table_t *ht)
 				ptr->value = NULL;
 			}
 			free(ptr);
+			ptr = NULL;
 			ptr = next_noeud;
 		}
 		ht->array[i] = NULL;

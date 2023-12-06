@@ -12,8 +12,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int size, index;
 	hash_node_t *ptr, *new_node;
 
-	if (!ht)
+	if (ht == NULL)
 		return (0);
+
 	size = ht->size;
 	index = key_index((unsigned char *)key, size);
 	ptr = ht->array[index];
@@ -24,12 +25,11 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		if (strcmp(ptr->key, key) == 0) /* si clé existe déjà */
 		{
 			ptr->value = strdup(value); /* mise à jour valeur */
-	/*		if (ptr->value == NULL)*/
-	/*			return (0);*/
 			return (1);
 		}
 		ptr = ptr->next;
 	}
+
 	/* Création nouveau noeud */
 	new_node = malloc(sizeof(hash_node_t));
 	if (new_node == NULL)

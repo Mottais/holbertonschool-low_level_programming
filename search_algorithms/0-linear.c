@@ -8,7 +8,6 @@
  * @value: valeur cherchée
  *
  * Return: index de la valeur cherchée, -1 si échec
-
  */
 int linear_search(int *array, size_t size, int value)
 {
